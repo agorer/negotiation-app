@@ -4,8 +4,13 @@ import store, { mutations } from '../store';
 
 describe('Tabs component', () => {
   let component;
+  const initialStoreState = {
+    currentTab: 'Employer',
+    amounts: { },
+  };
 
   beforeEach(() => {
+    store.replaceState(initialStoreState);
     component = mount(Tabs, { store });
   });
 
