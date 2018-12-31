@@ -1,11 +1,11 @@
 <template>
   <div class="tabs">
     <button v-for="tab in tabs"
-            :key="tab"
-            :id="tab"
-            :class="['tab', 'tab-button', { active: currentTab === tab }]"
-            @click="changeTab(tab)">
-      {{ tab }}
+            :key="tab.id"
+            :id="tab.id"
+            :class="['tab', 'tab-button', { active: currentTab === tab.id }]"
+            @click="changeTab(tab.id)">
+      {{ tab.title }}
     </button>
 
   </div>

@@ -5,8 +5,11 @@ import store, { mutations } from '../store';
 describe('Tabs component', () => {
   let component;
   const initialStoreState = {
-    tabs: ['Employer', 'Employee'],
-    currentTab: 'Employer',
+    tabs: [
+      { id: 'employer', title: 'Employer', description: 'enter maximum offer' },
+      { id: 'employee', title: 'Employee', description: 'enter minimum salary' },
+    ],
+    currentTab: 'employer',
     amounts: { },
   };
 
@@ -16,22 +19,22 @@ describe('Tabs component', () => {
   });
 
   it('should change to the Employee tab when clicked', () => {
-    mutations.changeTab(store.state, 'Employer');
-    const employeeTab = component.find('#Employee');
+    mutations.changeTab(store.state, 'employer');
+    const employeeTab = component.find('#employee');
 
     employeeTab.trigger('click');
 
     expect(employeeTab.is('.active')).toBe(true);
-    expect(store.state.currentTab).toBe('Employee');
+    expect(store.state.currentTab).toBe('employee');
   });
 
   it('should change to the Employer tab when clicked', () => {
-    mutations.changeTab(store.state, 'Employee');
-    const employerTab = component.find('#Employer');
+    mutations.changeTab(store.state, 'employee');
+    const employerTab = component.find('#employer');
 
     employerTab.trigger('click');
 
     expect(employerTab.is('.active')).toBe(true);
-    expect(store.state.currentTab).toBe('Employer');
+    expect(store.state.currentTab).toBe('employer');
   });
 });

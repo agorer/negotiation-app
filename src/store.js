@@ -14,7 +14,10 @@ export const mutations = {
 
 export default new Vuex.Store({
   state: {
-    tabs: ['Employer', 'Employee'],
+    tabs: [
+      { id: 'employer', title: 'Employer', description: 'enter maximum offer' },
+      { id: 'employee', title: 'Employee', description: 'enter minimum salary' },
+    ],
     currentTab: 'Employer',
     amounts: { },
   },
