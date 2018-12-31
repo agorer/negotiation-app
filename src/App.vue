@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-
+    <tabs></tabs>
   </div>
 </template>
 
 <script>
+import Tabs from './components/tabs.vue';
+
 export default {
   name: 'app',
   components: {
-
+    Tabs,
   },
 };
 </script>
