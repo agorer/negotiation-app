@@ -15,15 +15,10 @@
 import { mapMutations, mapState } from 'vuex';
 
 export default {
-  data() {
-    return {
-      tabs: ['Employer', 'Employee'],
-    };
-  },
   methods: {
     ...mapMutations(['changeTab']),
   },
-  computed: mapState(['currentTab']),
+  computed: mapState(['tabs', 'currentTab']),
 };
 </script>
 

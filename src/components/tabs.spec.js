@@ -5,6 +5,7 @@ import store, { mutations } from '../store';
 describe('Tabs component', () => {
   let component;
   const initialStoreState = {
+    tabs: ['Employer', 'Employee'],
     currentTab: 'Employer',
     amounts: { },
   };

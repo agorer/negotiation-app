@@ -7,6 +7,7 @@ describe('Number input component', () => {
   let textInput;
   let submitButton;
   const initialStoreState = {
+    tabs: ['Employer', 'Employee'],
     currentTab: 'Employer',
     amounts: { },
   };
