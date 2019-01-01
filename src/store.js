@@ -6,11 +6,9 @@ Vue.use(Vuex);
 export const mutations = {
   changeTab(state, tab) {
     Vue.set(state, 'currentTab', tab);
-    // state.currentTab = tab;
   },
   setAmount(state, amountInfo) {
     Vue.set(state.amounts, amountInfo.id, amountInfo.value);
-    // state.amounts[amountInfo.id] = amountInfo.value;
   },
 };
 
