@@ -7,6 +7,8 @@
                   v-show="tab.id == currentTab"
                   :amount-id="tab.id"
                   :placeholder="tab.description"></number-input>
+
+    <div class="result" v-if="bothAmountsFilled">{{negotiationResult}}</div>
   </div>
 </template>
 
@@ -15,13 +17,25 @@ import { mapState } from 'vuex';
 import Tabs from './components/tabs.vue';
 import NumberInput from './components/number-input.vue';
 
+function isEmpty(value) {
+  return !value || value.length === 0;
+}
+
 export default {
   name: 'app',
   components: {
     Tabs,
     NumberInput,
   },
-  computed: mapState(['tabs', 'currentTab']),
+  computed: {
+    ...mapState(['tabs', 'currentTab', 'amounts']),
+    bothAmountsFilled() {
+      return !isEmpty(this.amounts.employer) && !isEmpty(this.amounts.employee);
+    },
+    negotiationResult() {
+      return this.amounts.employee <= this.amounts.employer ? 'Success!' : 'Failure!';
+    },
+  },
 };
 </script>
 
