@@ -16,10 +16,7 @@
 import { mapState } from 'vuex';
 import Tabs from './components/tabs.vue';
 import NumberInput from './components/number-input.vue';
-
-function isEmpty(value) {
-  return !value || value.length === 0;
-}
+import { isEmpty } from './common/string-utils';
 
 export default {
   name: 'app',

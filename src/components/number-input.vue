@@ -11,14 +11,7 @@
 
 <script>
 import { mapMutations, mapGetters } from 'vuex';
-
-function isEmpty(value) {
-  return !value || value.length === 0;
-}
-
-function isPositiveNumber(value) {
-  return /^\+?(0|[1-9]\d*)$/.test(value);
-}
+import { isEmpty, isPositiveNumber } from '../common/string-utils';
 
 export default {
   props: ['amountId', 'placeholder'],
