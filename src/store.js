@@ -5,10 +5,12 @@ Vue.use(Vuex);
 
 export const mutations = {
   changeTab(state, tab) {
-    state.currentTab = tab;
+    Vue.set(state, 'currentTab', tab);
+    // state.currentTab = tab;
   },
   setAmount(state, amountInfo) {
-    state.amounts[amountInfo.id] = amountInfo.value;
+    Vue.set(state.amounts, amountInfo.id, amountInfo.value);
+    // state.amounts[amountInfo.id] = amountInfo.value;
   },
 };
 
@@ -18,8 +20,11 @@ export default new Vuex.Store({
       { id: 'employer', title: 'Employer', description: 'enter maximum offer' },
       { id: 'employee', title: 'Employee', description: 'enter minimum salary' },
     ],
-    currentTab: 'Employer',
+    currentTab: 'employer',
     amounts: { },
   },
   mutations,
+  getters: {
+    getAmount: state => amountId => state.amounts[amountId],
+  },
 });

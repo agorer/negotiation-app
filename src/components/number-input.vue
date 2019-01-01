@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
 function isEmpty(value) {
   return !value || value.length === 0;
@@ -28,12 +28,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(['amounts']),
+    ...mapGetters(['getAmount']),
     isInvalid() {
       return isEmpty(this.amount) || !isPositiveNumber(this.amount);
     },
     isVisible() {
-      return !this.amounts[this.amountId];
+      return isEmpty(this.getAmount(this.amountId));
     },
   },
   methods: {

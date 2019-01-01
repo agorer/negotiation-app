@@ -5,8 +5,8 @@
     <number-input v-for="tab in tabs"
                   :key="tab.id"
                   v-show="tab.id == currentTab"
-                  amount-id="tab.id"
-                  placeholder="tab.description"></number-input>
+                  :amount-id="tab.id"
+                  :placeholder="tab.description"></number-input>
   </div>
 </template>
 

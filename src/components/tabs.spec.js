@@ -2,9 +2,8 @@ import { mount } from '@vue/test-utils';
 import Tabs from './tabs.vue';
 import store, { mutations } from '../store';
 
-describe('Tabs component', () => {
-  let component;
-  const initialStoreState = {
+function initialStoreState() {
+  return {
     tabs: [
       { id: 'employer', title: 'Employer', description: 'enter maximum offer' },
       { id: 'employee', title: 'Employee', description: 'enter minimum salary' },
@@ -12,9 +11,13 @@ describe('Tabs component', () => {
     currentTab: 'employer',
     amounts: { },
   };
+}
+
+describe('Tabs component', () => {
+  let component;
 
   beforeEach(() => {
-    store.replaceState(initialStoreState);
+    store.replaceState(initialStoreState());
     component = mount(Tabs, { store });
   });
 

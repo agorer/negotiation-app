@@ -2,11 +2,8 @@ import { mount } from '@vue/test-utils';
 import NumberInput from './number-input.vue';
 import store from '../store';
 
-describe('Number input component', () => {
-  let component;
-  let textInput;
-  let submitButton;
-  const initialStoreState = {
+function initialStoreState() {
+  return {
     tabs: [
       { id: 'employer', title: 'Employer', description: 'enter maximum offer' },
       { id: 'employee', title: 'Employee', description: 'enter minimum salary' },
@@ -14,9 +11,15 @@ describe('Number input component', () => {
     currentTab: 'employer',
     amounts: { },
   };
+}
+
+describe('Number input component', () => {
+  let component;
+  let textInput;
+  let submitButton;
 
   beforeEach(() => {
-    store.replaceState(initialStoreState);
+    store.replaceState(initialStoreState());
     component = mount(NumberInput, { store });
     textInput = component.find('.text-input');
     submitButton = component.find('.submit-button');
