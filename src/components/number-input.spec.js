@@ -1,17 +1,7 @@
 import { mount } from '@vue/test-utils';
 import NumberInput from './number-input.vue';
 import store from '../store';
-
-function initialStoreState() {
-  return {
-    tabs: [
-      { id: 'employer', title: 'Employer', description: 'enter maximum offer' },
-      { id: 'employee', title: 'Employee', description: 'enter minimum salary' },
-    ],
-    currentTab: 'employer',
-    amounts: { },
-  };
-}
+import initialStoreState from '../../tests/fixtures';
 
 describe('Number input component', () => {
   let component;
