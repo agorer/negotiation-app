@@ -4,11 +4,11 @@ describe('Negotiation app', () => {
 
     cy.get('.tab').contains('Employer').click();
     cy.get('input').filter(':visible').type('100');
-    cy.get('button').contains('Submit').click().debug();
+    cy.get('button').filter(':visible').contains('Submit').click();
 
     cy.get('.tab').contains('Employee').click();
-    cy.get('input').contains('enter minimum salary').type('90');
-    cy.get('button').contains('Submit').click();
+    cy.get('input').filter(':visible').type('90');
+    cy.get('button').filter(':visible').contains('Submit').click();
 
     cy.get('.result').should('contain', 'Success!');
   });
@@ -17,12 +17,12 @@ describe('Negotiation app', () => {
     cy.visit('/');
 
     cy.get('.tab').contains('Employer').click();
-    cy.get('input').contains('enter maximum offer').type('100');
-    cy.get('button').contains('Submit').click();
+    cy.get('input').filter(':visible').type('100');
+    cy.get('button').filter(':visible').contains('Submit').click();
 
     cy.get('.tab').contains('Employee').click();
-    cy.get('input').contains('enter minimum salary').type('100');
-    cy.get('button').contains('Submit').click();
+    cy.get('input').filter(':visible').type('100');
+    cy.get('button').filter(':visible').contains('Submit').click();
 
     cy.get('.result').should('contain', 'Success!');
   });
